@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+
+<dom-module id="my-new-view">
+
+  <!-- Defines the element's style and local DOM -->
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 16px;
+      }
+
+      :host .box {
+        width: 100px;
+        height: 100px;
+        background: rgb([[value_red]],[[value_green]],[[value_blue]]);
+      }
+    </style>
+    <div class="box"></div>
+    <h1>Red:[[value_red]] Greed:[[value_green]] Blue:[[value_blue]]</h1>
+    <p>Red:</p><paper-slider min="0" max="255" value="{{value_red}}"></paper-slider>
+    <p>Green:</p><paper-slider min="0" max="255" value="{{value_green}}"></paper-slider>
+    <p>Blue:</p><paper-slider min="0" max="255" value="{{value_blue}}"></paper-slider>
+  </template>
+
+  <!-- Creates the element's prototype and registers it -->
+  <script>
+    Polymer({
+      is: 'my-new-view',
+      properties: {
+        route: Object,
+        value_red: Number,
+        value_green: Number,
+        value_blue: Number 
+      }
+    });
+  </script>
+
+</dom-module>
